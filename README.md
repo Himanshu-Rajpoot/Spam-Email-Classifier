@@ -1,102 +1,122 @@
-# 📊 Computational Modeling of Multi-Frequency Wave Interference
+# 📧 Spam Email Classifier using Naive Bayes
 
 ## 📌 Overview
-This project presents a *computational simulation of wave interference* using Python. It demonstrates how two sinusoidal waves with different frequencies, amplitudes, and phase shifts combine to form a complex waveform through the *principle of superposition*.
+This project is a machine learning-based spam email classifier that uses the Naive Bayes algorithm to classify messages as **Spam** or **Ham (Not Spam)**.
 
-The simulation provides a clear visualization of how simple harmonic waves interact, making it easier to understand important concepts in *physics, signal processing, and engineering*.
+The system analyzes the content of text messages and predicts whether they are unwanted spam or legitimate communication.
 
 ---
+
 ## 🎯 Objectives
-- To understand the concept of *wave interference*
-- To simulate sinusoidal waves using Python
-- To visualize *constructive and destructive interference*
-- To analyze the effect of *frequency, amplitude, and phase*
-- To connect theory with *real-world applications*
+- To build a spam detection system using machine learning
+- To understand and apply the Naive Bayes theorem
+- To perform text preprocessing and feature extraction
+- To evaluate model performance using accuracy metrics
 
 ---
 
-## ⚙️ Tools & Technologies
-- *Python 3.x*
-- *NumPy* → Efficient numerical computation
-- *Matplotlib* → Data visualization and plotting
+## 🧠 Key Concepts Used
+- Machine Learning
+- Supervised Learning
+- Naive Bayes Classification
+- Natural Language Processing (NLP)
+- Probability Theory
+- TF-IDF (Term Frequency - Inverse Document Frequency)
 
 ---
 
-## 🧠 Concepts Covered
-- Simple Harmonic Motion (SHM)
-- Sine wave modeling
-- Superposition principle
-- Constructive interference
-- Destructive interference
-- Phase shift and its effects
-- Harmonic relationships
-- Signal representation
+## ⚙️ Technologies & Tools
+- Python 3.x
+- Pandas (data handling)
+- NumPy (numerical computation)
+- Scikit-learn (ML model)
+- Pickle (model saving)
 
 ---
 
-## 📐 Mathematical Model
+## 📂 Project Structure
+spam_classifier/
+│── spam_classifier.py # Main code
+│── spam.csv # Dataset
+│── model.pkl # Saved trained model
+│── README.md # Documentation
 
-### 🔹 Sine Wave Equation
-y(t) = A sin(2πft + φ)
-Where:
-- *A* → Amplitude (maximum displacement)
-- *f* → Frequency (Hz)
-- *t* → Time (seconds)
-- *φ* → Phase shift (radians)
 
 ---
 
-### 🔹 Superposition Principle
-intf(t) = w1(t) + w2(t)
-This means the resulting wave at any time is the *sum of the individual waves*.
+## 📊 Dataset Information
+- Dataset: SMS Spam Collection Dataset
+- Format: CSV file
+- Columns:
+  - `v1`: Label (spam or ham)
+  - `v2`: Message text
+
+Example:
+ham, Hey how are you?
+spam, Congratulations! You won a prize!
+
 
 ---
 
-## 📊 Wave Parameters Used
+## 🔄 Workflow
 
-| Parameter | Wave 1 | Wave 2 |
-|----------|--------|--------|
-| Frequency | 5 Hz | 10 Hz |
-| Amplitude | 1.0 | 0.8 |
-| Phase | 0 | π/4 |
+1. Data Loading  
+2. Data Cleaning (removing punctuation, lowercasing)  
+3. Feature Extraction (TF-IDF)  
+4. Model Training (Naive Bayes)  
+5. Prediction  
+6. Evaluation  
 
 ---
 
-## 💻 Code Implementation
+## 🧪 Model Details
 
-```python
-import numpy as np
-import matplotlib.pyplot as plt
+The classifier uses:
 
-# Time array (0 to 3 seconds)
-time = np.linspace(0, 3, 1000)
+- **CountVectorizer** → Converts text to numeric vectors  
+- **TF-IDF Transformer** → Weighs important words  
+- **Multinomial Naive Bayes** → Performs classification  
 
-# Wave parameters
-f1, f2 = 5, 10
-amp1, amp2 = 1, 0.8
-phase1, phase2 = 0, np.pi/4
+---
 
-# Generate sine waves
-w1 = amp1 * np.sin(2 * np.pi * f1 * time + phase1)
-w2 = amp2 * np.sin(2 * np.pi * f2 * time + phase2)
+## ▶️ How to Run the Project
 
-# Superposition (Interference)
-intf = w1 + w2
+### Step 1: Install Dependencies
 
-# Plot results
-plt.figure(figsize=(12,8))
+### Step 2: Add Dataset
+Place `spam.csv` in the same folder.
 
-plt.subplot(3,1,1)
-plt.plot(time, w1)
-plt.title("Wave 1 (5 Hz)")
+### Step 3: Run the Program
+---
 
-plt.subplot(3,1,2)
-plt.plot(time, w2)
-plt.title("Wave 2 (10 Hz)")
+## 📈 Evaluation Metrics
 
-plt.subplot(3,1,3)
-plt.plot(time, intf)
-plt.title("Interference Pattern")
+- Accuracy Score  
+- Precision  
+- Recall  
+- F1 Score  
 
-plt.tight_layout()
-plt.show()
+These metrics are printed after training.
+
+---
+
+## 🚀 Features
+- Interactive user input
+- Real-time prediction
+- Probability/confidence output
+- Model saving and reuse
+
+---
+
+## ⚠️ Limitations
+- Depends on dataset quality
+- May misclassify rare messages
+- No GUI interface
+
+---
+
+## 🔮 Future Improvements
+- Add graphical interface (Streamlit)
+- Use deep learning (LSTM/Transformers)
+- Integrate with email services
+- Improve preprocessing (stopwords removal, stemming).
