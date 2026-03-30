@@ -108,12 +108,6 @@ These metrics are printed after training.
 
 ---
 
-## ⚠️ Limitations
-- Depends on dataset quality
-- May misclassify rare messages
-- No GUI interface
-
----
 
 ## 🔮 Future Improvements
 - Add graphical interface (Streamlit)
